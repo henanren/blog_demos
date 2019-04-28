@@ -1,0 +1,37 @@
+version: '3'
+services:
+  eureka:
+    build: ./eureka-server
+    restart: always
+    image: eureka:v1.0
+    ports:
+      - 8761:8080
+    networks:
+      - eureka-net
+    hostname: eureka
+
+  provider:
+    build: ./service-provider
+    restart: always
+    image: provider:v1.0
+   # ports:
+    #  - 2017:8086
+    networks:
+      - eureka-net
+    depends_on:
+      - eureka
+
+  consumer:
+    build: ./feign-consumer
+    restart: always
+    image: client:v1.0
+    ports:
+      - 9000:9000
+    depends_on:
+      - eureka
+    networks:
+      - eureka-net
+networks:
+  eureka-net:
+    driver: bridge
+ 

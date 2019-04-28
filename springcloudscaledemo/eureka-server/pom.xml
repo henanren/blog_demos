@@ -10,13 +10,20 @@
 
 	<name>eureka-server</name>
 	<description>Demo project for Spring Boot</description>
-
+<!--
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>1.5.9.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath/>  
 	</parent>
+	-->
+		<parent>
+		<groupId>com.lenovo1</groupId>
+	    <artifactId>iot1</artifactId>
+	    <version>1.0.0</version>
+	</parent>
+	
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
